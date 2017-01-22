@@ -7,16 +7,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-	
+
 <h:head>
 </h:head>
 <h:body>
-<h1>第一个JPA小例子</h1>
-<h:form>
-输入姓名:<h:inputText value="#{controller.newPerson.name}" /><br />
-输入密码:<h:inputText value="#{controller.newPerson.password}" /><br />
-<h:commandButton value="登录" action="#{controller.login}"/>
-</h:form>
-
+	<h1>第一个JPA小例子</h1>
+	<h:form>
+输入姓名:<h:inputText value="#{controller.newPerson.name}" />
+		<br />
+输入密码:<h:inputText value="#{controller.newPerson.password}" />
+		<br />
+		<h:commandButton value="登录" action="#{controller.login}" />
+		<br />
+		<h:commandButton value="查询" action="#{controller.query}" />
+	</h:form>
 </h:body>
 </html>
