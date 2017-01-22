@@ -6,24 +6,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Named("person")
 @Entity
 public class Person {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO) // auto是默认值，可不写
-
 	private Long id;
-
 	private String name;
 	private String password;
 
-	
-	//构造器
+	// 构造器
 	public Person() {
-		
+
 	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -39,14 +35,4 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
-	
-	//test方法
-
-	/*
-	 * public Message(String text) { this.text = text; }
-	 */
-
 }
