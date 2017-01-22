@@ -3,17 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<!-- name可以自定义 -->
-	<persistence-unit name="Person"
-		transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="Person" transaction-type="RESOURCE_LOCAL">
 		<description>
             Persistence unit for HelloWorldJPA
         </description>
 
 		<jta-data-source>java:/jboss/labDS</jta-data-source>
-		<!-- 　持久化类 -->
+		<!-- 持久化类 -->
 		<class>cn.edu.sdut.softlab.model.Person</class>
-        <exclude-unlisted-classes>true</exclude-unlisted-classes>  
-        
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+
 		<properties>
 			<property name="hibernate.transaction.jta.platform"
 				value="org.hibernate.service.jta.platform.internal.JBossAppS‌​erverJtaPlatform" />
