@@ -181,4 +181,51 @@ public class PersonController implements Serializable {
 	public void remove() {
 
 	}
+	
+	//检索
+	
+	public void simpleRetrieval() {
+		try {
+			emf = Persistence.createEntityManagerFactory("Person");
+			//EntityManager emA = getDatabaseA().createEntityManager();
+			em = emf.createEntityManager();
+			em.getTransaction().begin();
+			
+			Person personA = em.find(Person.class,29);
+			//Person personB  = em.find(Person.class, 29);
+			//打断点测试
+			System.out.println("打印personA的情况: " + personA.toString());
+			/*assertTrue(personA == personB);
+			assertTrue(personA.equals(personB));
+			assertTrue(personA.getName().equals(personB.getName()));*/
+
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			System.out.println("检索出错");
+		} finally {
+			em.close();
+			emf.close();
+			System.out.println("查询成功!");
+		}
+
+		// result.getCode();
+	}
+	
+	
+	public void replicateTest() {
+		try {
+			emf = Persistence.createEntityManagerFactory("Person");
+			emf = Persistence.createEntityManagerFactory("Person");
+			em = emf.createEntityManager();
+			em.getTransaction().begin();
+			//中间操作
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			System.out.println("检索出错");
+		} finally {
+			em.close();
+			emf.close();
+			System.out.println("查询成功!");
+		}
+	}
 }
