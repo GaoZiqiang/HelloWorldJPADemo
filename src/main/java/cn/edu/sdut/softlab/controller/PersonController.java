@@ -23,7 +23,8 @@ public class PersonController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	EntityManagerFactory emf = null;
 	EntityManager em = null;
-
+    //引入UserTransaction对象 UserTransaction是个接口
+	//private UserTransaction utx;
 	private Person newPerson = new Person();
 
 	// newPerson的getter和setter方法
@@ -36,22 +37,26 @@ public class PersonController implements Serializable {
 	}
 
 	// login方法
-	public void login() throws IllegalStateException, SecurityException, HeuristicMixedException,
+	public void addPerson() throws IllegalStateException, SecurityException, HeuristicMixedException,
 			HeuristicRollbackException, RollbackException, SystemException {
 		try {
+			//utx.begin();
 			emf = Persistence.createEntityManagerFactory("Person");
-			em = emf.createEntityManager();
+			//断点测试
+			System.out.println("------输出emf: " + emf.toString());
+			//em = emf.createEntityManager();
 			// 断点测试
 			System.out.println("打印输出newPerson:   " + newPerson.toString());
-			System.out.println("打印输出em:  " + em.toString());// 测试结果，EntityManager注入失败
-			em.getTransaction().begin();// 至关重要的一步：开启事务
+			//System.out.println("打印输出em:  " + em.toString());// 测试结果，EntityManager注入失败
+			/*em.getTransaction().begin();// 至关重要的一步：开启事务
 			em.persist(newPerson);
-			em.getTransaction().commit();
+			em.getTransaction().commit();*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			em.close();
-			emf.close();
+			//em.close();
+			//emf.close();
+			//utx.commit();
 			System.out.println("存入成功!");
 		}
 
