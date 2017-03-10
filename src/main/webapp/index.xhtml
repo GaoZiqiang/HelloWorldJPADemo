@@ -5,23 +5,19 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
 </h:head>
 <h:body>
-	<h1>第一个JPA小例子</h1>
-	<h:form>
+    <h1>第一个JPA小例子</h1>
+    <h:form>
 输入姓名:<h:inputText value="#{controller.newPerson.name}" />
-		<br />
+        <br />
 输入密码:<h:inputText value="#{controller.newPerson.password}" />
-		<br />
-		<h:commandButton value="添加用户" action="#{controller.addPerson}" />
-		<br />
-		<h:commandButton value="查询兼remove" action="#{controller.query2}" immediate="true" />
-		<br />
-		<h:commandButton value="replicate方法测试" action="#{replicate.replicateTest}" immediate="true" />
-	</h:form>
+        <br />
+        <h:commandButton value="登录" action="#{controller.addPerson}" />
+    </h:form>
 </h:body>
 </html>
