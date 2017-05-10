@@ -37,22 +37,24 @@ public class PersonController {
     public void addPerson() throws IllegalStateException, SecurityException, HeuristicMixedException,
             HeuristicRollbackException, RollbackException, SystemException {
         try {
-        	utx.begin();
-            /*emf = Persistence.createEntityManagerFactory("Person");
-            em = emf.createEntityManager();*/
+        	//utx.begin();
+        	 //该参数必须与persistence-unit的name相一致
+            emf = Persistence.createEntityManagerFactory("PersonUnit");
+           
+            em = emf.createEntityManager();
             // 断点测试
             System.out.println("打印输出newPerson:   " + newPerson.toString());
             System.out.println("打印输出em:  " + em.toString());// 测试结果，EntityManager注入失败
-            //em.getTransaction().begin();// 至关重要的一步：开启事务
+            em.getTransaction().begin();// 至关重要的一步：开启事务
             em.persist(newPerson);
-            //em.getTransaction().commit();
+            em.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            //em.close();
+            em.close();
         	
-            //emf.close();
-            utx.commit();
+            emf.close();
+            //utx.commit();
             System.out.println("存入成功!");
         }
 
