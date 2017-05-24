@@ -12,6 +12,7 @@
 		<!-- 持久化类 -->
 		<class>cn.edu.sdut.softlab.model.Person</class>
 		<class>cn.edu.sdut.softlab.model.Man</class>
+		<class>cn.edu.sdut.softlab.model.FoodTreeTable</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 
 		<properties>
